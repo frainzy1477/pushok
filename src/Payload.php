@@ -57,7 +57,7 @@ class Payload implements \JsonSerializable
 
 
     /**
-     * The notification settings for your app on the user’s device determine whether an alert or banner is displayed.
+     * The notification settings for your app on the user's device determine whether an alert or banner is displayed.
      *
      * @var Alert|string
      */
@@ -72,7 +72,7 @@ class Payload implements \JsonSerializable
     private $badge;
 
     /**
-     * The name of a sound file in the app bundle or in the Library/Sounds folder of the app’s data container.
+     * The name of a sound file in the app bundle or in the Library/Sounds folder of the app's data container.
      *
      * @var Sound|string
      */
@@ -100,7 +100,7 @@ class Payload implements \JsonSerializable
     private $mutableContent;
 
     /**
-     * Provide this key with a string value that represents the notification’s type.
+     * Provide this key with a string value that represents the notification's type.
      *
      * @var string
      */
@@ -781,8 +781,8 @@ class Payload implements \JsonSerializable
             $payload[self::PAYLOAD_ROOT_KEY]->{self::PAYLOAD_TIMESTAMP_KEY} = $this->timestamp;
         }
 
-        if (is_double($this->relevanceScore)) {
-            $payload[self::PAYLOAD_ROOT_KEY]->{self::PAYLOAD_RELEVANCE_SCORE_KEY} = $this->relevanceScore;
+        if (is_numeric($this->relevanceScore)) {
+            $payload[self::PAYLOAD_ROOT_KEY]->{self::PAYLOAD_RELEVANCE_SCORE_KEY} = (float)$this->relevanceScore;
         }
 
         if ($this->dismissalDate) {
